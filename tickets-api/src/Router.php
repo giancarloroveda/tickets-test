@@ -2,15 +2,27 @@
 
 namespace App;
 
-class Router {
+class Router
+{
     private array $routes = [];
 
-    public function addRoute(string $method, string $path, array $handler, array $middlewares = []) {
+    public function __construct(
+        private readonly ServiceContainer $container
+    ) {
+    }
+
+    public function addRoute(
+        string $method,
+        string $path,
+        array  $handler,
+        array  $middlewares = []
+    ) {
         $this->routes[] = new Route($method, $path, $handler, $middlewares);
     }
 
-    public function dispatch(string $method, string $uri) {
-        $uri = parse_url($uri, PHP_URL_PATH); // ignore query string
+    public function dispatch(string $method, string $uri)
+    {
+        $uri = parse_url($uri, PHP_URL_PATH);
 
         foreach ($this->routes as $route) {
             if ($route->matches($method, $uri)) {
@@ -24,11 +36,12 @@ class Router {
         echo json_encode(["error" => "Not Found"]);
     }
 
-    private function buildMiddlewareChain(Route $route, array $params): callable {
+    private function buildMiddlewareChain(Route $route, array $params): callable
+    {
         $middlewares = $route->getMiddlewares();
         $handler = $route->getHandler();
 
-        $controller = new $handler[0];
+        $controller = $this->container->resolve($handler[0]);
         $action = $handler[1];
 
         $next = function () use ($controller, $action, $params) {
@@ -36,7 +49,7 @@ class Router {
         };
 
         foreach (array_reverse($middlewares) as $middlewareClass) {
-            $middleware = new $middlewareClass;
+            $middleware = $this->container->resolve($middlewareClass);
             $next = function () use ($middleware, $next) {
                 return $middleware->handle($next);
             };

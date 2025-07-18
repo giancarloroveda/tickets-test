@@ -2,15 +2,18 @@
 
 namespace App;
 
-class Route {
+class Route
+{
     public function __construct(
         private string $method,
         private string $path,
-        private array $handler,
-        private array $middlewares = []
-    ) {}
+        private array  $handler,
+        private array  $middlewares = []
+    ) {
+    }
 
-    public function matches(string $method, string $uri): bool {
+    public function matches(string $method, string $uri): bool
+    {
         if (strtoupper($method) !== strtoupper($this->method)) {
             return false;
         }
@@ -21,7 +24,8 @@ class Route {
         return preg_match($pattern, $uri);
     }
 
-    public function extractParams(string $uri): array {
+    public function extractParams(string $uri): array
+    {
         $paramNames = [];
         preg_match_all('/:([\w]+)/', $this->path, $matches);
         $paramNames = $matches[1];
@@ -35,11 +39,13 @@ class Route {
         return array_combine($paramNames, $matches);
     }
 
-    public function getHandler(): array {
+    public function getHandler(): array
+    {
         return $this->handler;
     }
 
-    public function getMiddlewares(): array {
+    public function getMiddlewares(): array
+    {
         return $this->middlewares;
     }
 }
