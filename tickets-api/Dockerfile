@@ -13,18 +13,16 @@ RUN apt-get update && apt-get install -y libpq-dev \
 RUN curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer
 
-COPY composer.json composer.lock ./
-
-RUN composer install --no-scripts --no-autoloader
+WORKDIR /var/www/html
 
 RUN a2enmod rewrite
-
 RUN sed -i 's/AllowOverride None/AllowOverride All/g' /etc/apache2/apache2.conf
 
-COPY . /var/www/html
+COPY . .
+
+RUN composer install
 
 RUN composer dump-autoload --optimize
-
 RUN chown -R www-data:www-data /var/www/html
 
 EXPOSE 80

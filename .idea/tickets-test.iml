@@ -4,32 +4,6 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/tickets-api/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tickets-api/src" isTestSource="false" packagePrefix="App\" />
-      <excludeFolder url="file://$MODULE_DIR$/tickets-api/vendor/cakephp/chronos" />
-      <excludeFolder url="file://$MODULE_DIR$/tickets-api/vendor/cakephp/core" />
-      <excludeFolder url="file://$MODULE_DIR$/tickets-api/vendor/cakephp/database" />
-      <excludeFolder url="file://$MODULE_DIR$/tickets-api/vendor/cakephp/datasource" />
-      <excludeFolder url="file://$MODULE_DIR$/tickets-api/vendor/cakephp/utility" />
-      <excludeFolder url="file://$MODULE_DIR$/tickets-api/vendor/composer" />
-      <excludeFolder url="file://$MODULE_DIR$/tickets-api/vendor/graham-campbell/result-type" />
-      <excludeFolder url="file://$MODULE_DIR$/tickets-api/vendor/league/container" />
-      <excludeFolder url="file://$MODULE_DIR$/tickets-api/vendor/phpoption/phpoption" />
-      <excludeFolder url="file://$MODULE_DIR$/tickets-api/vendor/psr/clock" />
-      <excludeFolder url="file://$MODULE_DIR$/tickets-api/vendor/psr/container" />
-      <excludeFolder url="file://$MODULE_DIR$/tickets-api/vendor/psr/log" />
-      <excludeFolder url="file://$MODULE_DIR$/tickets-api/vendor/psr/simple-cache" />
-      <excludeFolder url="file://$MODULE_DIR$/tickets-api/vendor/robmorgan/phinx" />
-      <excludeFolder url="file://$MODULE_DIR$/tickets-api/vendor/symfony/config" />
-      <excludeFolder url="file://$MODULE_DIR$/tickets-api/vendor/symfony/console" />
-      <excludeFolder url="file://$MODULE_DIR$/tickets-api/vendor/symfony/deprecation-contracts" />
-      <excludeFolder url="file://$MODULE_DIR$/tickets-api/vendor/symfony/filesystem" />
-      <excludeFolder url="file://$MODULE_DIR$/tickets-api/vendor/symfony/polyfill-ctype" />
-      <excludeFolder url="file://$MODULE_DIR$/tickets-api/vendor/symfony/polyfill-intl-grapheme" />
-      <excludeFolder url="file://$MODULE_DIR$/tickets-api/vendor/symfony/polyfill-intl-normalizer" />
-      <excludeFolder url="file://$MODULE_DIR$/tickets-api/vendor/symfony/polyfill-mbstring" />
-      <excludeFolder url="file://$MODULE_DIR$/tickets-api/vendor/symfony/polyfill-php80" />
-      <excludeFolder url="file://$MODULE_DIR$/tickets-api/vendor/symfony/service-contracts" />
-      <excludeFolder url="file://$MODULE_DIR$/tickets-api/vendor/symfony/string" />
-      <excludeFolder url="file://$MODULE_DIR$/tickets-api/vendor/vlucas/phpdotenv" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

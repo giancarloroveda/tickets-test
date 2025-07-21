@@ -6,9 +6,18 @@ services:
       - "8080:80"
     volumes:
       - ./tickets-api:/var/www/html
+      - /var/www/html/vendor
     restart: unless-stopped
     depends_on:
       - db
+  client:
+    build:
+      context: ./tickets-client
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./tickets-client:/app
+      - /app/node_modules
   db:
     image: postgres:16
     ports:

@@ -9,11 +9,11 @@ class Database
 {
     public static function connect(): PDO
     {
-        $host = getenv('DB_HOST');
-        $port = getenv('DB_PORT');
-        $dbname = getenv('DB_NAME');
-        $user = getenv('DB_USER');
-        $pass = getenv('DB_PASSWORD');
+        $host = $_ENV['DB_HOST'];
+        $port = $_ENV['DB_PORT'];
+        $dbname = $_ENV['DB_NAME'];
+        $user = $_ENV['DB_USER'];
+        $pass = $_ENV['DB_PASSWORD'];
 
         $dsn = "pgsql:host=$host;port=$port;dbname=$dbname";
 
